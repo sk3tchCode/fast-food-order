@@ -1,0 +1,67 @@
+public class Food{
+    
+    // instance variables ----------------------------------------------
+    private String name;
+    private double priceDollars;
+    private int fatGrams;
+    private int carbohydratesGrams;
+    private int fibreGrams;
+    
+    // constructor -----------------------------------------------------
+    /**
+     * the constructor sets up and assigns values to the instance variables
+     * depending on the given parameters
+     * 
+     * @param name  the parameter (String) to be assigned to the instance variable, 'name'
+     * @param price  the parameter (double) to be assigned to the instance variable, 'priceDollars'   
+     * @param fat   the parameter (int) to be assigned to the instance variable, 'fatGrams'   
+     * @param carbohydrates the parameter (int) to be assigned to the instance variable, 'carbohydratesGrams'
+     * @param fibre the (int) parameter to be assigned to the instance variable, 'fibreGrams'
+     */
+    public Food(String name, double price, int fat, int carbohydrates, int fibre){
+        this.name = name;
+        priceDollars = price;
+        fatGrams = fat;
+        carbohydratesGrams = carbohydrates;
+        fibreGrams = fibre;
+    }
+    
+    // getters ---------------------------------------------------------
+    /**
+     * this getter method returns the price of the food 
+     * 
+     * @return  returns the price of the food using the 'priceDollars' variable (double)
+     */
+    public double getPriceDollars(){
+        return priceDollars;
+    }
+    
+    /**
+     * this getter method returns the plural form of the name of the food 
+     * 
+     * @return  returns the plural form of the name of the food using the 'name' variable (String)
+     */
+    public String getNamePlural(){
+        // checks to see if the name already ends with "s"
+        if(name.substring(name.length() - 1).equals("s")){
+            return name;
+        }
+        
+        return name + "s";
+    }
+    
+    // toString --------------------------------------------------------
+    /**
+     * the toString method returns a string with the name of the food item, followed by its
+     * nutritional information
+     * 
+     * @return  returns a string using the 'name' variable followed by the grams of fat, using the
+     *          using the 'fatGrams' variable, followed by the grams of carbohydrates using the
+     *          'carbohydratesGrams' variable, followed by the grams of fibre using the
+     *          'fibreGrams' variable
+     */
+    public String toString(){
+        return "Each " + name + " has " + fatGrams + " grams of fat, " + carbohydratesGrams + " grams of carbohydrates, and " + fibreGrams + " grams of fibre.";
+    }
+    
+}

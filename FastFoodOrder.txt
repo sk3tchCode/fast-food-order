@@ -1,0 +1,48 @@
+/** This program is a fast food order. It gives the user the option to buy
+ *  from 4 different types of fast food items: hamburgers, salad, french fries and
+ *  soda, while displaying their respective nutritional facts. After that, the 
+ *  program displays the total cost of the order. The user may continue to order
+ *  as many times as they wish.
+ * @author Ahsan Abdullah
+ * @version 1
+ */
+public class FastFoodOrder extends ConsoleProgram
+{
+    
+    public void run()
+    {
+        // Initializes an array of fast foods
+        Food[] foodItems = {new Food("hamburger", 1.85, 9, 33, 2),
+                            new Food("salad", 2.00, 1, 11, 5),
+                            new Food("french fries", 1.30, 11, 36, 4),
+                            new Food("soda", 0.95, 0, 38, 0),};
+        
+        System.out.println("Welcome to the fast food order!\n");
+        
+        while(true){
+            double totalCostOfOrder = 0.0;
+            
+            for(int i = 0; i < foodItems.length; i++){
+                int foodInput = readInt("Enter number of " + foodItems[i].getNamePlural() + ": ");
+                
+                // prints out the name of the item and its nutritional facts
+                System.out.println(foodItems[i] + "\n");
+                
+                // adds to the total cost of the order depending on the # of food
+                // items of that kind the user inputted
+                totalCostOfOrder += foodInput * foodItems[i].getPriceDollars();
+            }
+            
+            System.out.println("Your order comes to: $" + totalCostOfOrder + "\n");
+            
+            String orderInput = readLine("Do you wish to place another order (enter y to continue) ");
+            System.out.println("");
+            
+            // breaks loop when user inputs anything other than "y"
+            if(!(orderInput.equals("y"))){
+                break;
+            }
+        }    
+    }
+    
+}
